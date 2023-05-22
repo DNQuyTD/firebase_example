@@ -34,13 +34,13 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   setupInteractedMessage() {
     locator<FcmService>().onInitialMessage.listen((message) {
-      debugPrint(message.toString());
+      print(message.toString());
       locator<NavigationService>()
           .getRouter()
           .go(Uri.parse(message.data['open_url']).path);
     });
     locator<FcmService>().onMessageOpenedApp.listen((message) {
-      debugPrint(message.toString());
+      print(message.toString());
       locator<NavigationService>()
           .getRouter()
           .go(Uri.parse(message.data['open_url']).path);
